@@ -5,6 +5,8 @@ package edu.ncsu.csc216.checkout_simulator.items;
 
 import java.awt.Color;
 
+import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
+
 /**
  * @author Caitlyn
  *
@@ -81,7 +83,7 @@ public abstract class Cart {
 		this.registerIndex = registerIndex;
 	}
 	
-	public abstract void getInLine(CheckoutRegister[]);
+	public abstract void getInLine(CheckoutRegister[] a);
 	
 	public abstract Color getColor();
 

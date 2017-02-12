@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.checkout_simulator.ui;
 
+import java.awt.Color;
+
 /**
  * @author Caitlyn
  *

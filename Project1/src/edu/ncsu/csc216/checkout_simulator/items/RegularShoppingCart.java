@@ -5,6 +5,8 @@ package edu.ncsu.csc216.checkout_simulator.items;
 
 import java.awt.Color;
 
+import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
+
 /**
  * @author Caitlyn
  *
@@ -21,7 +23,7 @@ public class RegularShoppingCart extends Cart{
 	}
 
 	@Override
-	public void getInLine(CheckoutRegister[]) {
+	public void getInLine(CheckoutRegister[] a) {
 		// TODO Auto-generated method stub
 		
 	}
