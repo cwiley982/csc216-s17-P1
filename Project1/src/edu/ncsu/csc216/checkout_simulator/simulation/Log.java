@@ -27,14 +27,16 @@ public class Log {
 	}
 	
 	public void logCart(Cart cart) {
-		
+		totalWaitTime += cart.getWaitTime();
+		totalProcessTime += cart.getProcessTime();
+		numCompleted++;
 	}
 	
 	public double averageWaitTime() {
-		return -1;
+		return totalWaitTime / numCompleted;
 	}
 	
 	public double averageProcessTime() {
-		return -1;
+		return totalProcessTime / numCompleted;
 	}
 }

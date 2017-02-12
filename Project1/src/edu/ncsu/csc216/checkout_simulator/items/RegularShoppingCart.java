@@ -30,8 +30,7 @@ public class RegularShoppingCart extends Cart{
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return color;
 	}
 
 }
