@@ -17,15 +17,24 @@ public class RegularShoppingCart extends Cart{
 	/**
 	 * 
 	 */
-	public RegularShoppingCart(int a, int b) {
-		super(a,b);
-		// TODO Auto-generated constructor stub
+	public RegularShoppingCart(int arrivalTime, int processTime) {
+		super(arrivalTime, processTime);
+		color = Color.BLUE;
 	}
 
 	@Override
 	public void getInLine(CheckoutRegister[] a) {
-		// TODO Auto-generated method stub
-		
+		int shortestLine = 1; //first register cart can join
+		for (int i = 2; i < a.length; i++) { //can join regular and special register lines
+			if (a[i].size() < a[shortestLine].size()) {
+				shortestLine = i;
+			} else if (a[i].size() == a[shortestLine].size()) {
+				shortestLine = Math.min(shortestLine, i);  //if lines are equal, choose smaller index
+			}
+		}
+		// shortestLine holds the index of the shortest line the cart can join
+		a[shortestLine].addCartToLine(this);
+		super.setRegisterIndex(shortestLine);
 	}
 
 	@Override

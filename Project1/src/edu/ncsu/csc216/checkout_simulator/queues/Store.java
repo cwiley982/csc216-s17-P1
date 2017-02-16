@@ -10,39 +10,40 @@ import edu.ncsu.csc216.checkout_simulator.items.Cart;
  *
  */
 public class Store implements LineOfItems{
-
+	/*The queue of carts (still shopping) created by CartFactory in the Store constructor. Carts are added to the queue in order of their arrivalTimes.*/
 	private ShoppingCartQueue shopping;
 	private CheckoutRegister[] register;
 	
 	/**
 	 * 
 	 */
-	public Store(int a, CheckoutRegister[] b) {
+	public Store(int numOfCarts, CheckoutRegister[] registers) {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return shopping.size();
 	}
 	
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		return !shopping.isEmpty();
 	}
 
 	@Override
 	public Cart processNext() {
-		// TODO Auto-generated method stub
-		return null;
+		shopping.front().getInLine(register);
+		return shopping.remove();
 	}
 
 	@Override
 	public int departTimeNext() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (!shopping.isEmpty()) {
+			return shopping.front().getArrivalTime();
+		} else {
+			return Integer.MAX_VALUE;
+		}
 	}
 
 }

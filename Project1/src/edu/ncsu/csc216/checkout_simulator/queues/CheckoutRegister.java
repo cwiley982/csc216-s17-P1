@@ -12,31 +12,43 @@ import edu.ncsu.csc216.checkout_simulator.simulation.Log;
  */
 public class CheckoutRegister {
 
+	/** The ShoppingCartQueue of carts waiting for or being processed at this register. */
+	private ShoppingCartQueue line;
+	private Log log;
+	/** The time when the line for this checkout register will finally be clear all of carts currently in line. */
 	private int timeWhenAvailable;
 	/**
 	 * 
 	 */
 	public CheckoutRegister(Log log) {
+		this.log = log;
+		line = new ShoppingCartQueue();
 		// TODO Auto-generated constructor stub
 	}
 
 	public int size() {
-		return -1;
+		return line.size();
 	}
 	
 	public Cart processNext() {
-		return null;
+		log.logCart(line.front());
+		return line.remove();
 	}
 	
 	public boolean hasNext() {
-		return false;
+		return !line.isEmpty();
 	}
 	
 	public int departTimeNext() {
-		return -1;
+		if (!line.isEmpty()) {
+			return line.front().getArrivalTime() + line.front().getWaitTime() + line.front().getProcessTime();
+		} else {
+			return Integer.MAX_VALUE;
+		}
 	}
 	
 	public void addCartToLine(Cart cart) {
+		line.add(cart);
 		
 	}
 }
