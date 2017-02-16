@@ -23,7 +23,6 @@ public class CheckoutRegister {
 	public CheckoutRegister(Log log) {
 		this.log = log;
 		line = new ShoppingCartQueue();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int size() {
@@ -49,6 +48,7 @@ public class CheckoutRegister {
 	
 	public void addCartToLine(Cart cart) {
 		line.add(cart);
-		
+		cart.setWaitTime(timeWhenAvailable - cart.getArrivalTime());
+		timeWhenAvailable += cart.getProcessTime();
 	}
 }

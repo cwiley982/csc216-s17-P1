@@ -4,6 +4,7 @@
 package edu.ncsu.csc216.checkout_simulator.queues;
 
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
+import edu.ncsu.csc216.checkout_simulator.items.CartFactory;
 
 /**
  * @author Caitlyn
@@ -17,8 +18,11 @@ public class Store implements LineOfItems{
 	/**
 	 * 
 	 */
-	public Store(int numOfCarts, CheckoutRegister[] registers) {
-		// TODO Auto-generated constructor stub
+	public Store(int numOfCarts, CheckoutRegister[] register) {
+		for (int i = 1; i <= numOfCarts; i++) {
+			shopping.add(CartFactory.createCart());
+		}
+		this.register = register;
 	}
 
 	@Override
