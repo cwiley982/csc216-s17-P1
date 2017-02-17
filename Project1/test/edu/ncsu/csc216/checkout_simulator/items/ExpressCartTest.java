@@ -38,6 +38,14 @@ public class ExpressCartTest {
 		} catch (IllegalArgumentException e) {
 			assertNull(cart2);
 		}
+
+		ExpressCart cart3 = null;
+		try {
+			cart3 = new ExpressCart(20, -30);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertNull(cart3);
+		}
 	}
 
 	@Test
@@ -54,7 +62,7 @@ public class ExpressCartTest {
 	public void testGetWaitTime() {
 		try {
 			ExpressCart cart = new ExpressCart(20, 30);
-			assertEquals(0, cart.getArrivalTime());
+			assertEquals(0, cart.getWaitTime());
 		} catch (IllegalArgumentException e) {
 			fail();
 		}
