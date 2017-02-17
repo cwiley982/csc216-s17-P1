@@ -51,12 +51,11 @@ public class Simulator {
 	 *            the number of registers in the simulation
 	 */
 	public Simulator(int numCarts, int numRegisters) {
-		if (numCarts > 0) {
-			this.numCarts = numCarts;
+		if (numCarts < 1 || numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS) {
+			throw new IllegalArgumentException();
 		}
-		if (numRegisters > MIN_NUM_REGISTERS && numRegisters < MAX_NUM_REGISTERS) {
-			this.numRegisters = numRegisters;
-		}
+		this.numCarts = numCarts;
+		this.numRegisters = numRegisters;
 		register = new CheckoutRegister[this.numRegisters];
 		theStore = new Store(this.numCarts, register);
 		myLog = new Log();

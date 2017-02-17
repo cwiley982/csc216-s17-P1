@@ -62,7 +62,11 @@ public class Log {
 	 * @return the average wait time
 	 */
 	public double averageWaitTime() {
-		return totalWaitTime / numCompleted;
+		if (numCompleted != 0) {
+			return totalWaitTime / numCompleted;
+		} else {
+			return 0;
+		}
 	}
 	
 	/**
@@ -72,6 +76,10 @@ public class Log {
 	 * @return the average process time
 	 */
 	public double averageProcessTime() {
-		return totalProcessTime / numCompleted;
+		if (numCompleted != 0) {
+			return totalProcessTime / numCompleted;
+		} else {
+			return 0;
+		}
 	}
 }
