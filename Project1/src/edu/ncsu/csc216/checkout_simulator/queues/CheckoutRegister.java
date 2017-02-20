@@ -31,6 +31,7 @@ public class CheckoutRegister {
 	public CheckoutRegister(Log log) {
 		this.log = log;
 		line = new ShoppingCartQueue();
+		timeWhenAvailable = 0;
 	}
 
 	/**
@@ -83,7 +84,14 @@ public class CheckoutRegister {
 	 */
 	public void addCartToLine(Cart cart) {
 		line.add(cart);
-		cart.setWaitTime(timeWhenAvailable - cart.getArrivalTime());
+		if (timeWhenAvailable <= cart.getArrivalTime()) {
+			cart.setWaitTime(0);
+		} else {
+			cart.setWaitTime(timeWhenAvailable - cart.getArrivalTime());
+		}
+		if (timeWhenAvailable == 0) {
+			timeWhenAvailable = cart.getArrivalTime();
+		}
 		timeWhenAvailable += cart.getProcessTime();
 	}
 }

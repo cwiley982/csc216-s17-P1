@@ -1,6 +1,8 @@
 package edu.ncsu.csc216.checkout_simulator.simulation;
 
+import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
 import edu.ncsu.csc216.checkout_simulator.queues.LineOfItems;
+import edu.ncsu.csc216.checkout_simulator.queues.Store;
 
 
 /**
