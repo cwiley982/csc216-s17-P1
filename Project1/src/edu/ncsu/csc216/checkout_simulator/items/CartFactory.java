@@ -1,6 +1,6 @@
 package edu.ncsu.csc216.checkout_simulator.items;
 
-import java.util.*;
+import java.util.Random;
 
 /**
  * A simple factory class whose only task is to generate shopping carts for a store.<br />

@@ -14,11 +14,16 @@ import edu.ncsu.csc216.checkout_simulator.items.ExpressCart;
 import edu.ncsu.csc216.checkout_simulator.simulation.Log;
 
 /**
+ * Tests functionality of CheckoutRegister
+ * 
  * @author Caitlyn Wiley
  *
  */
-public class TestCheckoutRegister {
+public class CheckoutRegisterTest {
 
+	/**
+	 * Tests getting the size of the line for a register
+	 */
 	@Test
 	public void testSize() {
 		Log log = new Log();
@@ -26,6 +31,9 @@ public class TestCheckoutRegister {
 		assertEquals(0, register.size());
 	}
 
+	/**
+	 * Tests adding a cart to the line of a checkout register
+	 */
 	@Test
 	public void testAddCartToLine() {
 		Log log = new Log();
@@ -40,6 +48,9 @@ public class TestCheckoutRegister {
 		assertEquals(20, cart2.getWaitTime());
 	}
 
+	/**
+	 * Tests checking whether the register has another cart in its line or not
+	 */
 	@Test
 	public void testHasNext() {
 		Log log = new Log();
@@ -50,6 +61,10 @@ public class TestCheckoutRegister {
 		assertTrue(register.hasNext());
 	}
 
+	/**
+	 * Tests checking when the next cart in line will finish at the register and
+	 * leave the simulation
+	 */
 	@Test
 	public void testDepartTimeNext() {
 		Log log = new Log();
@@ -61,6 +76,9 @@ public class TestCheckoutRegister {
 		assertEquals(50, register.departTimeNext());
 	}
 
+	/**
+	 * Tests processing the next cart in line at the register
+	 */
 	@Test
 	public void testProcessNext() {
 		Log log = new Log();

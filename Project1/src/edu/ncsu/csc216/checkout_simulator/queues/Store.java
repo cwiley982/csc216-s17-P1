@@ -30,6 +30,7 @@ public class Store implements LineOfItems {
 	 *            the number of registers in the store
 	 */
 	public Store(int numOfCarts, CheckoutRegister[] register) {
+		shopping = new ShoppingCartQueue();
 		for (int i = 1; i <= numOfCarts; i++) {
 			shopping.add(CartFactory.createCart());
 		}
