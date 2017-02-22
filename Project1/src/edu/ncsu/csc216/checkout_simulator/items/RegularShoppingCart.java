@@ -42,8 +42,8 @@ public class RegularShoppingCart extends Cart {
 	@Override
 	public void getInLine(CheckoutRegister[] registers) {
 		int shortestLine = 1; //first register cart can join
-		// can join regular and special register lines
-		for (int i = shortestLine + 1; i < registers.length; i++) {
+		//can join regular and special register lines
+		for (int i = shortestLine + 1; i < registers.length; i++) { 
 			if (registers[i].size() < registers[shortestLine].size()) {
 				shortestLine = i;
 			} else if (registers[i].size() == registers[shortestLine].size()) {

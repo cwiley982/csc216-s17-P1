@@ -95,7 +95,7 @@ public class Simulator {
 		currentCart = null;
 		if (moreSteps()) {
 			LineOfItems next = theCalendar.nextToBeProcessed();
-			next.processNext();
+			currentCart = next.processNext();
 			stepsTaken++;
 		} else {
 			throw new IllegalStateException();
