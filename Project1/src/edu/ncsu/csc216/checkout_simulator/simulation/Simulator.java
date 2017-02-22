@@ -97,8 +97,7 @@ public class Simulator {
 				currentCart = theStore.processNext();
 				// handle cart quitting shopping, enter a line
 			} else if (next instanceof CheckoutRegister) {
-				CheckoutRegister registerToProcess = (CheckoutRegister) next;
-				currentCart = registerToProcess.processNext();
+				currentCart = next.processNext();
 				// handle cart leaving register, log info
 			}
 			stepsTaken++;

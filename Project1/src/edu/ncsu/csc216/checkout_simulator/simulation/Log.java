@@ -63,7 +63,7 @@ public class Log {
 	 */
 	public double averageWaitTime() {
 		if (numCompleted != 0) {
-			return totalWaitTime / numCompleted;
+			return (double) totalWaitTime / numCompleted;
 		} else {
 			return 0;
 		}
@@ -77,7 +77,7 @@ public class Log {
 	 */
 	public double averageProcessTime() {
 		if (numCompleted != 0) {
-			return totalProcessTime / numCompleted;
+			return (double) totalProcessTime / numCompleted;
 		} else {
 			return 0;
 		}
