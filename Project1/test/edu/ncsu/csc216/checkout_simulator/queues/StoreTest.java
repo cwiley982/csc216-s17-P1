@@ -4,8 +4,8 @@
 package edu.ncsu.csc216.checkout_simulator.queues;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -56,11 +56,22 @@ public class StoreTest {
 	}
 
 	/**
-	 * Will test depart next time method in Store
+	 * Tests depart time next method in Store
 	 */
 	@Test
-	public void testDepartNextTime() {
-		// not sure how to test this
-		fail("Not yet implemented.");
+	public void testDepartTimeNext() {
+		Log log = new Log();
+		CheckoutRegister r1 = new CheckoutRegister(log);
+		CheckoutRegister r2 = new CheckoutRegister(log);
+		CheckoutRegister r3 = new CheckoutRegister(log);
+		CheckoutRegister[] register = { r1, r2, r3 };
+		Store store = new Store(12, register);
+		assertNotEquals(Integer.MAX_VALUE, store.departTimeNext());
+		for (int i = 0; i < store.size(); i++) {
+			store.processNext();
+			i--; // starts over at 0 since each time the size decreases so i has
+					// to restart loop
+		}
+		assertEquals(Integer.MAX_VALUE, store.departTimeNext());
 	}
 }
