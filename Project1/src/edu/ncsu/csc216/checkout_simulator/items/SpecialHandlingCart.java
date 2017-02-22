@@ -41,8 +41,11 @@ public class SpecialHandlingCart extends Cart {
 	 */
 	@Override
 	public void getInLine(CheckoutRegister[] registers) {
-		int shortestLine = (int) Math.ceil(registers.length * .75); //first special register
-		for (int i = (int) Math.ceil(registers.length * .75) + 1; i < registers.length; i++) {
+		int numSpecialRegisters = (int) Math.ceil(registers.length * .25);
+		int shortestLine = registers.length - numSpecialRegisters; // first
+																	// special
+																	// register
+		for (int i = shortestLine + 1; i < registers.length; i++) {
 			if (registers[i].size() < registers[shortestLine].size()) {  //if next line is shorter
 				shortestLine = i;
 			} else if (registers[i].size() == registers[shortestLine].size()) {
