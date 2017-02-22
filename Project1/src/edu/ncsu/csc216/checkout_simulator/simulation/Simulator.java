@@ -95,13 +95,7 @@ public class Simulator {
 		currentCart = null;
 		if (moreSteps()) {
 			LineOfItems next = theCalendar.nextToBeProcessed();
-			if (next instanceof Store) {
-				currentCart = next.processNext();
-				// handle cart quitting shopping, enter a line
-			} else if (next instanceof CheckoutRegister) {
-				currentCart = next.processNext();
-				// handle cart leaving register, log info
-			}
+			next.processNext();
 			stepsTaken++;
 		} else {
 			throw new IllegalStateException();
