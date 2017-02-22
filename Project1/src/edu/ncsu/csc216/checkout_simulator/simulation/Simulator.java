@@ -4,6 +4,7 @@
 package edu.ncsu.csc216.checkout_simulator.simulation;
 
 import java.awt.Color;
+import java.util.NoSuchElementException;
 
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
@@ -172,7 +173,11 @@ public class Simulator {
 	 * @return true if the currentCart left the simulation
 	 */
 	public boolean itemLeftSimulation() {
-		return !currentCart.isWaitingInRegisterLine();
+		if (currentCart == null) {
+			throw new NoSuchElementException();
+		} else {
+			return !currentCart.isWaitingInRegisterLine();
+		}
 	}
 	
 	/**

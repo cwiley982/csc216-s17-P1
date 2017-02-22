@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.checkout_simulator.queues;
 
+import java.util.NoSuchElementException;
+
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 import edu.ncsu.csc216.checkout_simulator.simulation.Log;
 
@@ -56,7 +58,7 @@ public class CheckoutRegister implements LineOfItems {
 			line.front().removeFromWaitingLine();
 			return line.remove();
 		} else {
-			return null;
+			throw new NoSuchElementException();
 		}
 	}
 	

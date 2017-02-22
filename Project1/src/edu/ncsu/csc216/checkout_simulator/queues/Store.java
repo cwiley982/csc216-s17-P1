@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.checkout_simulator.queues;
 
+import java.util.NoSuchElementException;
+
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 import edu.ncsu.csc216.checkout_simulator.items.CartFactory;
 
@@ -68,7 +70,7 @@ public class Store implements LineOfItems {
 			shopping.front().getInLine(register);
 			return shopping.remove();
 		} else {
-			return null;
+			throw new NoSuchElementException();
 		}
 	}
 
