@@ -8,8 +8,8 @@ import java.awt.Color;
 import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
 
 /**
- * Creates a RegularCart with the color blue that can enter all lines except the
- * express register
+ * Creates a RegularShoppingCart with the color blue that can enter all lines
+ * except the express register
  * 
  * @author Caitlyn Wiley
  *
@@ -42,9 +42,8 @@ public class RegularShoppingCart extends Cart {
 	@Override
 	public void getInLine(CheckoutRegister[] registers) {
 		int shortestLine = 1; //first register cart can join
-		for (int i = 2; i < registers.length; i++) { // can join regular and
-														// special register
-														// lines
+		// can join regular and special register lines
+		for (int i = shortestLine + 1; i < registers.length; i++) {
 			if (registers[i].size() < registers[shortestLine].size()) {
 				shortestLine = i;
 			} else if (registers[i].size() == registers[shortestLine].size()) {

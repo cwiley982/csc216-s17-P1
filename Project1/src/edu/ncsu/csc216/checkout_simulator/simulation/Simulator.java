@@ -96,7 +96,7 @@ public class Simulator {
 		if (moreSteps()) {
 			LineOfItems next = theCalendar.nextToBeProcessed();
 			if (next instanceof Store) {
-				currentCart = theStore.processNext();
+				currentCart = next.processNext();
 				// handle cart quitting shopping, enter a line
 			} else if (next instanceof CheckoutRegister) {
 				currentCart = next.processNext();
