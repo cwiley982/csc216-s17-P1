@@ -5,10 +5,13 @@ package edu.ncsu.csc216.checkout_simulator.simulation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+
+import java.awt.Color;
 
 import org.junit.Test;
 
@@ -114,6 +117,9 @@ public class SimulatorTest {
 	@Test
 	public void testGetCurrentIndex() {
 		Simulator simulator = new Simulator(3, 12);
+		assertEquals(-1, simulator.getCurrentIndex());
+		simulator.step();
+		assertNotEquals(-1, simulator.getCurrentIndex());
 	}
 
 	/**
@@ -122,6 +128,19 @@ public class SimulatorTest {
 	@Test
 	public void testGetCurrentCartColor() {
 		Simulator simulator = new Simulator(3, 12);
+		simulator.step();
+		int registerIndex = simulator.getCurrentIndex();
+		// all lines are empty so the cart will join the register that matches
+		// its type
+		Color color = null;
+		if (registerIndex == 0) {
+			color = Color.GREEN;
+		} else if (registerIndex == 1) {
+			color = Color.BLUE;
+		} else if (registerIndex == 2) {
+			color = Color.RED;
+		}
+		assertEquals(color, simulator.getCurrentCartColor());
 	}
 
 	/**

@@ -16,8 +16,8 @@ import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
  */
 public abstract class Cart {
 
-	/** The index for the first CheckoutRegister */
-	public static final int INITIAL_REGISTER_IDX = 0;
+	/** The initial index for the register a cart is at */
+	public static final int INITIAL_REGISTER_IDX = -1;
 	/** When a Cart enters a line */
 	private int arrivalTime;
 	/** How long a Cart waits in line before checking out */
@@ -43,6 +43,8 @@ public abstract class Cart {
 		}
 		this.arrivalTime = arrivalTime;
 		this.processTime = processTime;
+		registerIndex = INITIAL_REGISTER_IDX;
+		waitingProcessing = false;
 	}
 	
 	/**
