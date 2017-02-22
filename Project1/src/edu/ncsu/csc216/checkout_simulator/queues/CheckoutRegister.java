@@ -13,7 +13,7 @@ import edu.ncsu.csc216.checkout_simulator.simulation.Log;
  * @author Caitlyn Wiley
  *
  */
-public class CheckoutRegister {
+public class CheckoutRegister implements LineOfItems {
 
 	/** The ShoppingCartQueue of carts waiting for or being processed at this register. */
 	private ShoppingCartQueue line;

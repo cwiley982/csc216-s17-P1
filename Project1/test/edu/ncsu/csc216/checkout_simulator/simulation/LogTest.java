@@ -13,11 +13,16 @@ import edu.ncsu.csc216.checkout_simulator.items.ExpressCart;
 import edu.ncsu.csc216.checkout_simulator.items.RegularShoppingCart;
 
 /**
+ * Tests functionality of Log class
+ * 
  * @author Caitlyn Wiley
  *
  */
 public class LogTest {
 
+	/**
+	 * Tests constructing a Log
+	 */
 	@Test
 	public void testLog() {
 		Log log = new Log();
@@ -26,6 +31,9 @@ public class LogTest {
 		assertEquals(0, (int) log.averageWaitTime());
 	}
 
+	/**
+	 * Tests getting the number of carts that have completed the simulation
+	 */
 	@Test
 	public void testGetNumCompleted() {
 		Log log = new Log();
@@ -42,6 +50,9 @@ public class LogTest {
 		}
 	}
 
+	/**
+	 * Tests logging a cart's info
+	 */
 	@Test
 	public void testLogCart() {
 		Log log = new Log();

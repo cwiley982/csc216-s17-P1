@@ -8,7 +8,6 @@ import java.awt.Color;
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
 import edu.ncsu.csc216.checkout_simulator.queues.LineOfItems;
-import edu.ncsu.csc216.checkout_simulator.queues.ShoppingCartQueue;
 import edu.ncsu.csc216.checkout_simulator.queues.Store;
 
 /**
@@ -50,17 +49,19 @@ public class Simulator {
 	 * @param numRegisters
 	 *            the number of registers in the simulation
 	 */
-	public Simulator(int numCarts, int numRegisters) {
+	public Simulator(int numRegisters, int numCarts) {
 		if (numCarts < 1 || numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS) {
 			throw new IllegalArgumentException();
 		}
 		this.numCarts = numCarts;
 		this.numRegisters = numRegisters;
-		register = new CheckoutRegister[this.numRegisters];
-		theStore = new Store(this.numCarts, register);
 		myLog = new Log();
-		ShoppingCartQueue checkoutEntry = new ShoppingCartQueue();
-		theCalendar = new EventCalendar((LineOfItems[]) register, (LineOfItems) checkoutEntry);
+		register = new CheckoutRegister[this.numRegisters];
+		for (int i = 0; i < this.numRegisters; i++) {
+			register[i] = new CheckoutRegister(myLog);
+		}
+		theStore = new Store(this.numCarts, register);
+		theCalendar = new EventCalendar(register, theStore);
 	}
 
 	/**
