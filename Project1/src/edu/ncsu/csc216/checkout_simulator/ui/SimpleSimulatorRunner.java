@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.checkout_simulator.ui;
 
 import java.util.Scanner;
+
 import edu.ncsu.csc216.checkout_simulator.simulation.Simulator;
 
 /**

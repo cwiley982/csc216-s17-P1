@@ -39,6 +39,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * 
 	 * @return the number of carts in line for the register
 	 */
+	@Override
 	public int size() {
 		return line.size();
 	}
@@ -48,8 +49,10 @@ public class CheckoutRegister implements LineOfItems {
 	 * 
 	 * @return the cart that was processed
 	 */
+	@Override
 	public Cart processNext() {
 		log.logCart(line.front());
+		line.front().removeFromWaitingLine();
 		return line.remove();
 	}
 	
@@ -58,6 +61,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * 
 	 * @return true if the line isn't empty
 	 */
+	@Override
 	public boolean hasNext() {
 		return !line.isEmpty();
 	}
@@ -68,6 +72,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * 
 	 * @return the time when the next cart will leave the checkout register
 	 */
+	@Override
 	public int departTimeNext() {
 		if (!line.isEmpty()) {
 			return line.front().getArrivalTime() + line.front().getWaitTime() + line.front().getProcessTime();

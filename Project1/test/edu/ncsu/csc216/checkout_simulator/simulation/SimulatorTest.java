@@ -3,8 +3,11 @@
  */
 package edu.ncsu.csc216.checkout_simulator.simulation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -69,4 +72,84 @@ public class SimulatorTest {
 		}
 	}
 
+	/**
+	 * Tests getting the total number of steps
+	 */
+	@Test
+	public void testTotalNumberOfSteps() {
+		Simulator simulator = new Simulator(4, 7);
+		assertEquals(14, simulator.totalNumberOfSteps());
+	}
+
+	/**
+	 * Tests to see if simulator successfully reports whether there are more
+	 * steps to be taken
+	 */
+	@Test
+	public void testMoreSteps() {
+		Simulator simulator = new Simulator(4, 7);
+		assertTrue(simulator.moreSteps());
+		for (int i = 0; i < 13; i++) {
+			simulator.step();
+		}
+		assertTrue(simulator.moreSteps());
+		simulator.step();
+		assertFalse(simulator.moreSteps());
+	}
+
+	/**
+	 * Tests to see if simulator correctly tells how many steps have been taken
+	 */
+	@Test
+	public void testGetStepsTaken() {
+		Simulator simulator = new Simulator(4, 7);
+		assertEquals(0, simulator.getStepsTaken());
+		simulator.step();
+		assertEquals(1, simulator.getStepsTaken());
+	}
+
+	/**
+	 * Tests getting the index of the register that the current cart is at
+	 */
+	@Test
+	public void testGetCurrentIndex() {
+		Simulator simulator = new Simulator(3, 12);
+	}
+
+	/**
+	 * Tests getting the color of the current cart
+	 */
+	@Test
+	public void testGetCurrentCartColor() {
+		Simulator simulator = new Simulator(3, 12);
+	}
+
+	/**
+	 * Tests telling whether the cart has left the simulation or not
+	 */
+	@Test
+	public void testItemLeftSimulation() {
+		Simulator simulator = new Simulator(3, 12);
+		simulator.step();
+		assertFalse(simulator.itemLeftSimulation()); // first step is always to
+														// add a cart to a line
+	}
+
+	/**
+	 * Tests getting the average wait time
+	 */
+	@Test
+	public void testAverageWaitTime() {
+		Simulator simulator = new Simulator(3, 12);
+		assertEquals(0, (int) simulator.averageWaitTime());
+	}
+
+	/**
+	 * Tests getting the average process time
+	 */
+	@Test
+	public void testAverageProcessTime() {
+		Simulator simulator = new Simulator(3, 12);
+		assertEquals(0, (int) simulator.averageProcessTime());
+	}
 }
