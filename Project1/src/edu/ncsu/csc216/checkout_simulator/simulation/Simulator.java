@@ -92,8 +92,8 @@ public class Simulator {
 	 * entering a line or a cart finishing at a register and logging its info)
 	 */
 	public void step() {
+		currentCart = null;
 		if (moreSteps()) {
-			currentCart = null;
 			LineOfItems next = theCalendar.nextToBeProcessed();
 			if (next instanceof Store) {
 				currentCart = theStore.processNext();
