@@ -64,8 +64,12 @@ public class Store implements LineOfItems {
 	 */
 	@Override
 	public Cart processNext() {
-		shopping.front().getInLine(register);
-		return shopping.remove();
+		if (hasNext()) {
+			shopping.front().getInLine(register);
+			return shopping.remove();
+		} else {
+			return null;
+		}
 	}
 
 	/**
