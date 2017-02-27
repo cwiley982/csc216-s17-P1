@@ -106,9 +106,7 @@ public abstract class Cart {
 	 * Removes the cart from the line it was in and finishes processing it
 	 */
 	public void removeFromWaitingLine() {
-		// Log.logCart(this);
 		waitingProcessing = false;
-		// finish processing
 	}
 	
 	/**

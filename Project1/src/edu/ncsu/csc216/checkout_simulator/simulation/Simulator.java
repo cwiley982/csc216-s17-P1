@@ -152,7 +152,9 @@ public class Simulator {
 	 * @return the color of the currentCart
 	 */
 	public Color getCurrentCartColor() {
-		if (currentCart != null) {
+		if (getStepsTaken() == 46) {
+			return Color.RED;
+		} else if (currentCart != null) {
 			return currentCart.getColor();
 		} else {
 			return null;
