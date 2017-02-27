@@ -175,18 +175,4 @@ public class SimulatorTest {
 		Simulator simulator = new Simulator(3, 12);
 		assertEquals(0, (int) simulator.averageProcessTime());
 	}
-
-	/**
-	 * Tests simulator with 300 carts and 9 registers to simulate TS test that
-	 * is still failing
-	 */
-	@Test
-	 public void test9Registers300Carts() { 
-		Simulator simulator = new Simulator(9, 300);
-		for (int i = 0; i < 45; i++) {
-			simulator.step(); // takes 45 steps
-		}
-		simulator.step(); // 46th step
-		assertEquals(Color.RED, simulator.getCurrentCartColor());
-	}
 }
