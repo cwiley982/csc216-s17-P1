@@ -175,19 +175,14 @@ public class SimulatorTest {
 		Simulator simulator = new Simulator(3, 12);
 		assertEquals(0, (int) simulator.averageProcessTime());
 	}
+	/*
+	 * @Test public void test9Registers300Carts() { Simulator simulator = new
+	 * Simulator(9, 300); while (simulator.moreSteps()) { simulator.step();
+	 * System.out.println(simulator.getStepsTaken() + " - " +
+	 * simulator.getCurrentCartColor()); } /* for (int i = 0; i < 45; i++) {
+	 * simulator.step(); // takes 45 steps } simulator.step(); // 46th step
+	 * System.out.println(simulator.getStepsTaken()); assertEquals(Color.RED,
+	 * simulator.getCurrentCartColor());
+	 */
 
-	@Test
-	public void test9Registers300Carts() {
-		Simulator simulator = new Simulator(9, 300);
-		while (simulator.moreSteps()) {
-			simulator.step();
-			System.out.println(simulator.getStepsTaken() + " - " + simulator.getCurrentCartColor());
-		}
-		/*
-		 * for (int i = 0; i < 45; i++) { simulator.step(); // takes 45 steps }
-		 * simulator.step(); // 46th step
-		 * System.out.println(simulator.getStepsTaken());
-		 * assertEquals(Color.RED, simulator.getCurrentCartColor());
-		 */
-	}
 }
